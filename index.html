@@ -26,7 +26,7 @@
                 <input id="CampoRA" type="number" maxlength="2" class="form-control">
                 <span>Insira o número de termos:</span>
                 <div class="row" style="margin-left:1%;">
-                    <input type="range" id="SliderTermo" value="0" min="0" max="50">
+                    <input type="range" id="SliderTermo" value="0" min="0" max="998">
                     <span style="margin-left: 5px;" id="LabelTermo">0</span>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="Gerar()">Gerar</button>
@@ -70,7 +70,8 @@
                 labels: labels, 
                 datasets: [{
                     data: numbers,
-                    backgroundColor: '#FFFFFF00'
+                    backgroundColor: '#FFFFFF00',
+                    borderColor: 'rgba(0, 78, 137, 1)'
                 }]
             }
             
@@ -80,7 +81,7 @@
 
     function calculate(numeroDeTermos, wzero, fzero){
         let result = [0]
-        for (let index = 1; index < 1000; index++) {
+        for (let index = 1; index < (fzero*2); index = index + 10) {
             let primeiroTermo = 0.5
             let multiplicador = 2/Math.PI
             let valorSomatorio = 0.0
